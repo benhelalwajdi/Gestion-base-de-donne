@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ajouter un societe</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="ajout/assets/css/main.css" />
+		<link rel="shortcut icon" href="images.duckduckgo.com.ico" />
+	</head>
+	<body onload="initialiser()">
+		<div id="page-wrapper">
+			<header id="header" class="alt">
+				<nav>
+					<a href="index.html">Index</a>
+				</nav>
+			</header>
+			<section id="banner">
+				<div class="inner">
+					<div class="logo">
+						<span class="icon fa-diamond">
+						</span>
+					</div>
+					<form id="form" method="post" action="ajouter.php">			
+						<h2>Ajouter Votre Societe</h2>
+						<input type="Text" name="ns" placeholder="Nom de societe" />
+						<input type="text" name="adresse" placeholder="Adresse de societe"/>
+					
+						<h2>Ajouter le directeur generale</h2>
+						<input type="text" name="ndg" placeholder="Nom de directeur generale"/>
+						<input type="text" name="ncindg"placeholder="Numero de carte identite"/>							
+
+						<h2>Ajouter le sous directeur</h2>
+						<select name="optionsList">
+							<option value="option0">Select le sous Directeur</option>
+							<option value="option1">Directeur Administration</option>
+							<option value="option2">Directeur Technique</option>
+						</select>
+
+						<div name="selectedOptions">
+						<input type="text" name="ndg" placeholder="Nom de sous directeur"/>
+						<input type="text" name="ncin"placeholder="Numero de carte identite"/>	
+							<h2>Ajouter le service</h2>
+							<select id="Options">
+							<--! hethi bech tet3aba 7asb l'option selectionné -->
+							</select>
+						<input type="text" name="ndg" placeholder="Nom de chef service"/>
+						<input type="text" name="ncin"placeholder="Numero de carte identite"/>
+    					<input type="submit" value="suivant">
+    					<input type="reset" value="effacer">
+						</div>
+
+						<script type="text/javascript">
+						var divSelectedOptions = document.getElementById("selectedOptions");
+						var optionsList = document.getElementById("optionsList");
+						var options = document.getElementById("Options");
+
+						optionsList.onchange=function()
+						{
+							if (optionsList.selectedIndex == -1 || optionsList.selectedIndex == 0) 
+								{
+									empty();
+									divSelectedOptions.style.display = "none";
+								}
+							else if (optionsList.selectedIndex == 2)
+								{
+									empty();
+									var option0 = document.createElement("option");
+									var option1 = document.createElement("option");
+									var option2 = document.createElement("option");
+									option0.text = "Select le Service";
+									option1.text = "Division Service";
+									option2.text = "Service Technique et Systeme";
+									options.add(option0);
+									options.add(option1);
+									options.add(option2);
+									divSelectedOptions.style.display = "";
+								}
+							else if (optionsList.selectedIndex == 1)
+								{
+									empty();
+									var option0 = document.createElement("option");
+									var option1 = document.createElement("option");
+									var option2 = document.createElement("option");
+									option0.text = "Select le Service";
+									option1.text = "Division Administration";
+									option2.text = "Service Administration et Systeme ";
+									options.add(option0);
+									options.add(option1);
+									options.add(option2);
+									divSelectedOptions.style.display = "";
+								}
+						};
+
+						function empty () 
+						{
+							for (var i = options.length - 1; i >= 0; i--) 
+							{
+								options.remove(options[i]);
+							};
+						}
+						
+						function initialiser () 
+						{
+							divSelectedOptions.style.display = "none";
+						}
+					</script>
+					<!--fazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->	
+				</form>
+			</div>
+		</section>
+
+
+	</body>
+</html>
